@@ -14,3 +14,8 @@ void driveCheesy(double throttle, double wheel) {
   rightPower -= angularPower;
   driveLR(leftPower, rightPower);
 }
+
+void disable() {
+  leftMotor.set(0);
+  rightMotor.set(0); 
+}

@@ -1,4 +1,5 @@
 #include "Arduino.h"
+#include "Servo.h"
 
 class Talon {
   public:
@@ -7,6 +8,7 @@ class Talon {
     void set(double output);
     double get();
   private:
+    Servo _myservo;
     int _pin;
     double _output;
 };
@@ -16,11 +18,11 @@ Talon::Talon(int pin) {
 }
 
 void Talon::begin() {
-  pinMode(_pin, OUTPUT);
+  _myservo.attach(_pin);
 }
 
 void Talon::set(double output) {
-  analogWrite(_pin, map(output, -1, 1, 0, 255));
+  _myservo.write(map(output, -1, 1, 0, 255));
   _output = output;
 }
 
