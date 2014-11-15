@@ -1,13 +1,14 @@
-void driveLR(double left, double right) {
-  leftMotor.set(left);
-  rightMotor.set(right);
+void driveLR(double leftPower, double rightPower) {
+  leftMotor.write(map(-leftPower, -255, 255, 0, 180));
+  rightMotor.write(map(rightPower, -255, 255, 0, 180));
 }
 
+double angularPower;
+double rightPower;
+double leftPower;
+
 void driveCheesy(double throttle, double wheel) {
-  double angularPower;
-  double rightPower;
-  double leftPower;
-  angularPower = abs(throttle) * wheel * turnSensitivity;
+  angularPower = abs(throttle) * -wheel * turnSensitivity;
   rightPower = throttle;
   leftPower = throttle;
   leftPower += angularPower;
@@ -16,6 +17,6 @@ void driveCheesy(double throttle, double wheel) {
 }
 
 void disable() {
-  leftMotor.set(0);
-  rightMotor.set(0); 
+  leftMotor.write(map(0, -255, 255, 0, 180));
+  rightMotor.write(map(0, -255, 255, 0, 180)); 
 }

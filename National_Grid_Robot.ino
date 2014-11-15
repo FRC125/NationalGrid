@@ -1,22 +1,19 @@
-#include "Talon.h"
+#include <Servo.h>
 
 double turnSensitivity = 1.3;
-Talon leftMotor(11);
-Talon rightMotor(10);
-int pinLeft = 0;
-int pinRight = 0;
+Servo leftMotor;
+Servo rightMotor;
+int pinLeft = 12;
+int pinRight = 13;
 
 void setup() {
   Serial.begin(9600);
-  leftMotor.begin();
-  rightMotor.begin();
+  leftMotor.attach(10);
+  rightMotor.attach(9);
+  pinMode(pinLeft, INPUT);
+  pinMode(pinRight, INPUT);
 }
 
 void loop() {
-  if(Serial) {
-    leftMotor.set(getLeftJoystick());
-    rightMotor.set(getRightJoystick());
-  }else{
-    disable();
-  }
+  driveCheesy(getRightJoystick(), getLeftJoystick());
 }
