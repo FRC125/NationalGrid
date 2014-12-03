@@ -1,7 +1,15 @@
-long getLeftJoystick() {
-  return map(deadband(pulseIn(pinLeft, HIGH), 50, 1430), 1010, 1850, -255, 255);
+long getRightJoystick(){
+  long value = map(pulseIn(pinRight, HIGH), 900, 1650, -255, 255);
+  if(value < -255 || value > 255){
+    value = 0;
+  }
+  return -deadband(value, 50, 0);
 }
 
-long getRightJoystick() {
-  return map(deadband(pulseIn(pinRight, HIGH), 50, 1430), 1010, 1850, -255, 255);
+long getLeftJoystick(){
+  long value = map(pulseIn(pinLeft, HIGH), 900, 1650, -255, 255);
+  if(value < -255 || value > 255){
+    value = 0;
+  }
+  return deadband(value, 50, 0);
 }
