@@ -3,7 +3,7 @@ long getRightJoystick(){
   if(value < -255 || value > 255){
     value = 0;
   }
-  return -deadband(value, 50, 0);
+  return deadband(value, 50, 0);
 }
 
 long getLeftJoystick(){
@@ -12,4 +12,8 @@ long getLeftJoystick(){
     value = 0;
   }
   return deadband(value, 50, 0);
+}
+
+int getShoot() {
+  return pulseIn(pinShoot, HIGH);
 }
