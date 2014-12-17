@@ -14,6 +14,6 @@ long getLeftJoystick(){
   return deadband(value, 50, 0);
 }
 
-int getShoot() {
-  return pulseIn(pinShoot, HIGH);
+boolean getShoot() {
+  return pulseIn(pinShoot, HIGH) > 1000;
 }

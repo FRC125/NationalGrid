@@ -3,8 +3,8 @@ void driveLR(double leftPower, double rightPower) {
 //  Serial.print(getLeftJoystick());
 //  Serial.print(" Right: ");
 //  Serial.println(getRightJoystick());
-  leftMotor.write(map(-leftPower, -255, 255, 0, 180));
-  rightMotor.write(map(rightPower, -255, 255, 0, 180));
+  leftMotor.write(map(leftPower, -255, 255, 0, 180)+7);
+  rightMotor.write(map(-rightPower, -255, 255, 0, 180)+7);
 }
 
 double angularPower;

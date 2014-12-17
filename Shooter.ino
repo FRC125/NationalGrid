@@ -16,7 +16,13 @@ void fireShirt() {
 }
 
 void spinBarrel(double rate) {
-  Serial.print("Left: ");
-  Serial.println(rate);
   barrelMotor.write(map(rate, -255, 255, 0, 180));
+}
+
+void raiseLinkage() {
+  
+}
+
+void lowerLinkage() {
+  
 }
