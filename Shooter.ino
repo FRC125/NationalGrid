@@ -5,14 +5,14 @@ void fireShirt() {
   fireSolenoid(solenoidPlunge);
   delay(100);
   fireSolenoid(solenoidFill);
-  delay(3000);
+  delay(7500);
   retractSolenoid(solenoidFill);
   delay(100);
   fireSolenoid(solenoidFire);
   delay(500);
   retractSolenoid(solenoidFire);
   delay(100);
-  retractSolenoid(solenoidPlunge);
+  //retractSolenoid(solenoidPlunge);
 }
 
 void spinBarrel(double rate) {
