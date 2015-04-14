@@ -13,10 +13,8 @@ double leftPower;
 
 void driveCheesy(double throttle, double wheel) {
   angularPower = abs(throttle) * -wheel * turnSensitivity;
-  rightPower = throttle;
-  leftPower = throttle;
-  leftPower += angularPower;
-  rightPower -= angularPower;
+  rightPower = throttle + angularPower;
+  leftPower = throttle - angularPower;
   driveLR(leftPower, rightPower);
 }
 
